@@ -1,0 +1,35 @@
+:root {
+    --pink: hsl(338, 70%, 55%);
+    --teal: hsl(183, 70%, 62%);
+    --white: hsl(334, 7%, 95%);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: hsl(224, 32%, 12%);
+    background-image: conic-gradient(from 0deg at 50% 50%,
+            blue,
+            purple,
+            purple,
+            blue);
+    background-blend-mode: multiply;
+    color: white;
+    min-block-size: 100dvh;
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    position: relative;
+
+    transform-style: preserve-3d;
+    transform:
+        perspective(5000px)
+        rotateY(var(--rotateY))
+        rotateX(var(--rotateX));
+}
