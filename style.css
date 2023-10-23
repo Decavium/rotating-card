@@ -1,9 +1,3 @@
-:root {
-    --pink: hsl(338, 70%, 55%);
-    --teal: hsl(183, 70%, 62%);
-    --white: hsl(334, 7%, 95%);
-}
-
 *,
 *::before,
 *::after {
@@ -11,25 +5,48 @@
 }
 
 body {
-    background: hsl(224, 32%, 12%);
-    background-image: conic-gradient(from 0deg at 50% 50%,
-            blue,
-            purple,
-            purple,
-            blue);
-    background-blend-mode: multiply;
-    color: white;
+    background: rgb(241,204,220);
+    background: linear-gradient(90deg, rgba(241,204,220,1) 0%, rgba(216,227,241,1) 100%);
     min-block-size: 100dvh;
     display: grid;
     place-items: center;
 }
 
-.card {
+.flipper {
     position: relative;
-
     transform-style: preserve-3d;
-    transform:
-        perspective(5000px)
-        rotateY(var(--rotateY))
-        rotateX(var(--rotateX));
+    transform: perspective(5000px) rotateY(var(--rotateY)) rotateX(var(--rotateX));
+}
+
+.flipper-card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+  
+.flipper-front,
+.flipper-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flipper-back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.flipper-card.flipper-is-flipped {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }

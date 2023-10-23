@@ -1,9 +1,16 @@
-const card = document.querySelector(".card");
-console.log(card)
+const flipper = document.querySelector(".flipper");
+const flipperCard = document.querySelectorAll(".flipper-card");
 
 document.addEventListener("mousemove", (e) => {
-    rotateElement(e, card);
+    rotateElement(e, flipper);
 })
+
+// on-click function called for each card face
+flipperCard.forEach(card => {
+    card.addEventListener("click", () => {
+        card.classList.toggle("flipper-is-flipped")
+    })
+});
 
 function rotateElement(event, element) {
     // get mouse position
