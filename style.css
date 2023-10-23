@@ -13,6 +13,7 @@ body {
 }
 
 .flipper {
+    cursor: pointer;
     filter: brightness(var(--brightness));
     position: relative;
     transform-style: preserve-3d;
