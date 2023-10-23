@@ -1,5 +1,7 @@
 "# rotating-card" 
 
+CodePen demo: https://codepen.io/Decavium/pen/poGvPBg
+
 The Magic: The Gathering card follows the mouse cursor and will flip to reveal the back of the card when clicked. The lighting emulates a foiled card.
 
 Credits:
