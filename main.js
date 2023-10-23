@@ -2,6 +2,7 @@ const flipper = document.querySelector(".flipper");
 const flipperCard = document.querySelectorAll(".flipper-card");
 
 document.addEventListener("mousemove", (e) => {
+    elementBrightness(e, flipper);
     rotateElement(e, flipper);
 })
 
@@ -27,4 +28,15 @@ function rotateElement(event, element) {
 
     element.style.setProperty("--rotateX", -1 * offsetY + "deg");
     element.style.setProperty("--rotateY", offsetX + "deg");
+}
+
+function elementBrightness(event, element) {
+    const y = event.clientY;
+    const totalY = window.innerHeight;
+
+    // minus from 1 to flip percentage
+    // -totalY*0.5 for offset
+    const yPercentage = 1-(y-totalY*0.5)/totalY;
+
+    element.style.setProperty("--brightness", yPercentage)
 }
